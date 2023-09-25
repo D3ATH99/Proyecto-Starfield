@@ -18,22 +18,59 @@ html {
 
 /* Globales */
 body {
-    font-size: 16px; /* 1rem = 10px */
+    font-size: 16px;
+    /* 1rem = 10px */
     background-image: url(../img/polar-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Bebas Neue";
     color: #fff;
 }
 
-p, a, ul li {
+p,
+a,
+ul li {
     font-family: "Lato", sans-serif;
     color: #fff;
     list-style: none;
     text-decoration: none;
+}
+
+/*! Animación título */
+header span {
+    font-family: "Lato";
+    -webkit-text-stroke: .2rem white;
+    --minFontSize: 2rem;
+    --maxFontSize: calc(var(--minFontSize) * 8);
+    --scaler: 20vw;
+    font-family: "Moderat", sans-serif;
+    font-weight: 900;
+    font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+    color: var(--primary);
+    background: url("../img/estrellas.jpeg");
+    background-size: auto 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: Starfield 10s linear infinite;
+}
+
+@keyframes Starfield {
+    0% {
+        background-position: center 200%;
+    }
+
+    100% {
+        background-position: center 0;
+    }
 }
 
 .header__nav ul li img {
@@ -44,6 +81,7 @@ p, a, ul li {
 .header__logo img {
     height: 20rem;
 }
+
 .header__logo {
     text-align: center;
 }
@@ -59,6 +97,7 @@ p, a, ul li {
     display: flex;
     flex-direction: column;
 }
+
 .header__nav ul li {
     padding: 1rem;
     cursor: pointer;
@@ -67,6 +106,7 @@ p, a, ul li {
     align-items: center;
     justify-content: center;
 }
+
 .header__nav ul li:hover {
     background: rgba(0, 0, 0, 0.8);
 }
@@ -74,16 +114,17 @@ p, a, ul li {
 @media (min-width: 992px) {
 
     .header__nav {
-            margin-bottom: 7rem;
-        }
+        margin-bottom: 7rem;
+    }
 
     .header__logo img {
-            width: 30%;
-            height: 25rem;
-        }
-        .header__logo {
-            text-align: center;
-        }
+        width: 22%;
+        height: 25rem;
+    }
+
+    .header__logo {
+        text-align: center;
+    }
 
     .header__nav ul {
         margin: 0;
@@ -94,7 +135,7 @@ p, a, ul li {
         justify-content: center;
         gap: 4rem;
     }
-    
+
     .header__nav ul li {
         padding: 1rem;
         background: transparent;
@@ -103,7 +144,7 @@ p, a, ul li {
         align-items: center;
         justify-content: center;
     }
-    
+
     .header__nav ul li:hover {
         background: rgba(0, 0, 0, 0.8);
     }
@@ -231,25 +272,41 @@ p, a, ul li {
 }
 
 .btn {
-    cursor: pointer;
-    margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 0.025rem;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 2rem;
+    padding: 1rem;
     color: white;
-    background-color: black;
+    background: #009b89;
+    filter: opacity(60%);
     border: none;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
+}
+
+.btn svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .btn:hover {
-    background-color: #0d0d0d;
+    filter: opacity(100%);
 }
 
-.btn:focus {
-    outline: 1px dashed yellow;
-    outline-offset: 3px;
+.btn:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+.btn:hover span {
+    transform: translateX(7px);
 }
 
 @media (hover: hover) and (min-width: 600px) {
@@ -310,6 +367,7 @@ footer {
     display: flex;
     gap: 8rem;
 }
+
 footer .redes-sociales {
     display: flex;
     align-items: center;
@@ -338,6 +396,7 @@ footer .redes-sociales {
     .redes-sociales {
         gap: 4rem;
     }
+
     .linkedin:hover {
         background: rgba(0, 0, 0, 0.8);
         border-radius: 1rem;
